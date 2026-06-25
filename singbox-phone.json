@@ -1,0 +1,74 @@
+{
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-remote",
+        "address": "1.1.1.1",
+        "detour": "proxy"
+      },
+      {
+        "tag": "dns-local",
+        "address": "223.5.5.5",
+        "detour": "direct"
+      }
+    ],
+    "rules": [
+      {
+        "outbound": "any",
+        "server": "dns-local"
+      }
+    ],
+    "final": "dns-remote",
+    "strategy": "ipv4_only"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "sing-box-tun",
+      "inet4_address": "172.19.0.2/30",
+      "auto_route": true,
+      "strict_route": true,
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "wireguard",
+      "tag": "proxy",
+      "server": "134.209.103.186",
+      "server_port": 51820,
+      "local_address": "10.8.0.3/32",
+      "private_key": "ANZ0GNkwEH+LarF3EtDyfuDrI7I3Nq21LcTLgO0rfCY=",
+      "peer_public_key": "mz/tttVjs16oAr7Bu+k3aO+qHqzhO7R1/HtyMe6sAHs=",
+      "system_interface": false,
+      "gso": false
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      }
+    ],
+    "auto_detect_interface": true,
+    "final": "proxy"
+  }
+}
