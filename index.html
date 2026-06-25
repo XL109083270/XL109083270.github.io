@@ -1,134 +1,57 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YuanAPI 源API — 高速稳定的 AI API 服务</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Microsoft YaHei',sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6}
-        .container{max-width:1100px;margin:0 auto;padding:0 24px}
-        header{background:#1e293b;padding:16px 0;border-bottom:1px solid #334155;position:sticky;top:0;z-index:100}
-        header .container{display:flex;justify-content:space-between;align-items:center}
-        .logo{font-size:22px;font-weight:700;color:#38bdf8}
-        .logo span{color:#94a3b8;font-weight:400}
-        nav a{color:#94a3b8;text-decoration:none;margin-left:24px;font-size:14px}
-        nav a:hover{color:#38bdf8}
-        .hero{text-align:center;padding:80px 0 60px}
-        .hero h1{font-size:52px;font-weight:800;background:linear-gradient(135deg,#38bdf8,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
-        .hero p{font-size:18px;color:#94a3b8;max-width:600px;margin:0 auto 32px}
-        .badge{display:inline-block;background:rgba(56,189,248,0.15);color:#38bdf8;padding:6px 16px;border-radius:20px;font-size:13px;margin-bottom:20px;border:1px solid rgba(56,189,248,0.3)}
-        .cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-        .btn{display:inline-block;padding:14px 32px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;transition:all .3s}
-        .btn-primary{background:#38bdf8;color:#0f172a}
-        .btn-primary:hover{background:#7dd3fc;transform:translateY(-2px)}
-        .btn-secondary{background:#334155;color:#e2e8f0;border:1px solid #475569}
-        .btn-success{background:#22c55e;color:#0f172a}
-        .btn-success:hover{background:#4ade80;transform:translateY(-2px)}
-        .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;padding:40px 0}
-        .feature{background:#1e293b;border-radius:12px;padding:28px;border:1px solid #334155;text-align:center}
-        .feature .icon{font-size:32px;margin-bottom:12px}
-        .feature h3{font-size:16px;margin-bottom:8px;color:#f1f5f9}
-        .feature p{font-size:13px;color:#94a3b8}
-        .pricing{padding:60px 0}
-        .section-title{text-align:center;font-size:32px;font-weight:700;margin-bottom:40px;color:#f1f5f9}
-        .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-        .plan{background:#1e293b;border-radius:16px;padding:32px;border:1px solid #334155;text-align:center;position:relative}
-        .plan.popular{border-color:#38bdf8}
-        .plan.popular::before{content:"推荐";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#38bdf8;color:#0f172a;padding:4px 16px;border-radius:12px;font-size:12px;font-weight:700}
-        .plan h3{font-size:20px;color:#f1f5f9;margin-bottom:8px}
-        .plan .price{font-size:36px;font-weight:800;color:#38bdf8;margin:16px 0}
-        .plan .price span{font-size:14px;color:#64748b}
-        .plan ul{list-style:none;margin:20px 0;text-align:left}
-        .plan ul li{padding:6px 0;font-size:14px;color:#cbd5e1}
-        .plan ul li:before{content:"2713 ";color:#38bdf8;font-weight:700}
-        .plan .btn{width:100%;margin-top:8px}
-        .docs{padding:40px 0}
-        .code-block{background:#0f172a;border-radius:10px;padding:20px;margin:16px 0;border:1px solid #334155;overflow-x:auto}
-        .code-block code{font-family:monospace;font-size:14px;color:#e2e8f0;white-space:pre}
-        footer{text-align:center;padding:40px 0;color:#64748b;font-size:13px;border-top:1px solid #334155;margin-top:40px}
-        footer a{color:#38bdf8;text-decoration:none}
-        .promo-box{background:linear-gradient(135deg,#1e293b,#0f172a);border:1px solid #38bdf8;border-radius:16px;padding:40px;text-align:center;margin:40px 0}
-        .promo-box h2{color:#38bdf8;font-size:24px;margin-bottom:12px}
-        .promo-box p{color:#94a3b8;margin-bottom:24px;font-size:15px}
-        .store-link{display:inline-flex;align-items:center;gap:8px;background:#22c55e;color:#0f172a;padding:16px 40px;border-radius:12px;font-size:18px;font-weight:700;text-decoration:none}
-        .store-link:hover{background:#4ade80}
-        @media(max-width:768px){.hero h1{font-size:32px}.hero{padding:40px 0}}
-    </style>
-</head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>YuanAPI 源API — AI API 服务</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Microsoft YaHei',sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.6}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+header{background:#1e293b;padding:16px 0;border-bottom:1px solid #334155}
+header .container{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:22px;font-weight:700;color:#38bdf8}.logo span{color:#94a3b8;font-weight:400}
+nav a{color:#94a3b8;text-decoration:none;margin-left:24px;font-size:14px}nav a:hover{color:#38bdf8}
+.hero{text-align:center;padding:100px 0 60px}
+.hero h1{font-size:52px;font-weight:800;background:linear-gradient(135deg,#38bdf8,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
+.hero p{font-size:18px;color:#94a3b8;max-width:600px;margin:0 auto 32px}
+.badge{display:inline-block;background:rgba(56,189,248,0.15);color:#38bdf8;padding:6px 16px;border-radius:20px;font-size:13px;margin-bottom:20px;border:1px solid rgba(56,189,248,0.3)}
+.cta-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 32px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;transition:all .3s}
+.btn-success{background:#22c55e;color:#0f172a}.btn-success:hover{background:#4ade80;transform:translateY(-2px);box-shadow:0 8px 24px rgba(34,197,94,0.3)}
+.btn-secondary{background:#334155;color:#e2e8f0;border:1px solid #475569}.btn-secondary:hover{background:#475569}
+footer{text-align:center;padding:40px 0;color:#64748b;font-size:13px;border-top:1px solid #334155;margin-top:40px}
+footer a{color:#38bdf8;text-decoration:none}
+.buy-box{background:linear-gradient(135deg,#1e293b,#0f172a);border:1px solid #38bdf8;border-radius:16px;padding:60px 40px;text-align:center;margin:60px 0}
+.buy-box h2{color:#38bdf8;font-size:28px;margin-bottom:16px}
+.buy-box p{color:#94a3b8;margin-bottom:32px;font-size:16px}
+.buy-btn{display:inline-block;background:#22c55e;color:#0f172a;padding:18px 48px;border-radius:12px;font-size:20px;font-weight:700;text-decoration:none}
+.buy-btn:hover{background:#4ade80;transform:translateY(-3px);box-shadow:0 12px 32px rgba(34,197,94,0.3)}
+.price-tag{font-size:14px;color:#64748b;margin-top:12px}
+@media(max-width:768px){.hero h1{font-size:32px}.hero{padding:60px 0 40px}}
+</style></head>
 <body>
-<header>
-    <div class="container">
-        <div class="logo">YuanAPI <span>源API</span></div>
-        <nav><a href="#pricing">定价</a><a href="#docs">接入</a><a href="/terms.html">条款</a></nav>
-    </div>
-</header>
+<header><div class="container">
+<div class="logo">YuanAPI <span>源API</span></div>
+<nav><a href="https://yuanapi.lemonsqueezy.com/checkout/buy/9427b400-5905-41d3-92aa-aa834af62282" target="_blank">购买</a><a href="/terms.html">服务条款</a></nav>
+</div></header>
 
-<section class="hero">
-    <div class="container">
-        <div class="badge">20828 即买即用 · 自动发货</div>
-        <h1>高速稳定的 AI API 服务</h1>
-        <p>DeepSeek V4 / Qwen2.5 / GLM-4<br>改一行 base_url 即可接入</p>
-        <div class="cta-buttons">
-            <a href="https://yuanapi.lemonsqueezy.com/checkout/buy/9427b400-5905-41d3-92aa-aa834af62282" class="btn btn-success" target="_blank">8365 30 8455</a>
-            <a href="#docs" class="btn btn-secondary">35265;265;255;</a>
-        </div>
-    </div>
-</section>
+<section class="hero"><div class="container">
+<div class="badge">即买即用 · 自动发货 · 兼容 OpenAI SDK</div>
+<h1>高速稳定的 AI API 服务</h1>
+<p>DeepSeek V4 / Qwen2.5 / GLM-4<br>改一行 base_url 即可接入，无需代理</p>
+<div class="cta-buttons">
+<a href="https://yuanapi.lemonsqueezy.com/checkout/buy/9427b400-5905-41d3-92aa-aa834af62282" class="btn btn-success" target="_blank">立即购买 30元起</a>
+<a href="https://api.yuanapi.vip" class="btn btn-secondary" target="_blank">API 状态</a>
+</div></div></section>
 
-<div class="container">
-    <div class="status-bar" style="display:flex;justify-content:center;gap:32px;padding:20px 0;flex-wrap:wrap">
-        <span style="display:flex;align-items:center;gap:8px;font-size:14px;color:#94a3b8"><span style="width:8px;height:8px;border-radius:50%;background:#22c55e;display:inline-block"></span> 26352;26377;26381;21153;27491;24120;34892;</span>
-        <span style="font-size:14px;color:#94a3b8">9881; 24179;24310;24212;36831; &lt;500ms</span>
-        <span style="font-size:14px;color:#94a3b8">12814; PayPal / 20449;29992;21345;</span>
-    </div>
-</div>
+<div class="container"><div class="buy-box">
+<h2>购买即得 API Key</h2>
+<p>付款后系统自动生成 Key 发送到您的邮箱<br>支持 DeepSeek / Qwen / GLM 等主流模型</p>
+<a href="https://yuanapi.lemonsqueezy.com/checkout/buy/9427b400-5905-41d3-92aa-aa834af62282" class="buy-btn" target="_blank">前往商店购买</a>
+<div class="price-tag">基础版 30元 / 500万 Token &middot; PayPal / 信用卡</div>
+</div></div>
 
-<div class="container">
-    <div class="promo-box">
-        <h2>12891;20080;21363;24471; API Key</h2>
-        <p>20184;27454;21518;31995;21160;21457;36865;21040;24744;30340;37038;31665;<br>25903;25345; DeepSeek / Qwen / GLM 31561;20027;30041;22411;29702;20195;20195;</p>
-        <a href="https://yuanapi.lemonsqueezy.com/checkout/buy/9427b400-5905-41d3-92aa-aa834af62282" class="store-link" target="_blank">36215;21435;21830;24215;36141;20080;</a>
-    </div>
-</div>
-
-<section id="pricing" class="pricing container">
-    <h2 class="section-title">22871;26635;23450;26684;</h2>
-    <div class="plans">
-        <div class="plan popular">
-            <h3>22522;30784;29256;</h3>
-            <div class="price">165;30<span> / 50019975; Token</span></div>
-            <ul>
-                <li>DeepSeek V4 Flash / Qwen2.5</li>
-                <li>GLM-4 / DeepSeek V4 Pro</li>
-                <li>26631;20934;20248;20808;26435;</li>
-                <li>90 22825;26377;25928;26399;</li>
-            </ul>
-            <a href="https://yuanapi.lemonsqueezy.com/checkout/buy/9427b400-5905-41d3-92aa-aa834af62282" class="btn btn-primary" target="_blank">31435;21363;36141;20080; 165;30</a>
-        </div>
-    </div>
-</section>
-
-<section id="docs" class="docs container">
-    <h2 class="section-title">25509;20837;25991;26723;</h2>
-    <div style="background:#1e293b;border-radius:16px;padding:32px;border:1px solid #334155">
-        <h3 style="font-size:18px;color:#f1f5f9;margin-bottom:16px">20860;23481; OpenAI SDK</h3>
-        <div class="code-block"><code>from openai import OpenAI
-client = OpenAI(
-    api_key="20320;30340;_API_Key",
-    base_url="https://api.yuanapi.vip/v1"
-)
-response = client.chat.completions.create(
-    model="deepseek-chat",
-    messages=[{"role":"user","content":"20320;22909;"}]
-)</code></div>
-    </div>
-</section>
-
-<footer>
-    <div class="container">
-        <p>169; 2026 YuanAPI <a href="/terms.html">26381;36153;26465;27454;</a> <a href="/privacy.html">38569;33391;25919;31574;</a> <a href="/refund.html">36864;27454;25919;31574;</a></p>
-    </div>
-</footer>
-</body>
-</html>
+<footer><div class="container">
+<p>&copy; 2026 YuanAPI 源API &middot; <a href="/terms.html">服务条款</a> &middot; <a href="/privacy.html">隐私政策</a> &middot; <a href="/refund.html">退款政策</a></p>
+<p style="margin-top:8px;color:#475569">联系: 109083270@qq.com</p>
+</div></footer>
+</body></html>
